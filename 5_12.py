@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+
+continents = ['Asia', 'Africa', 'North America', 'South America',
+              'Antarctica', 'Europe', 'Australia']
+
+areas = [44.58, 30.37, 24.71, 17.84, 14.0, 10.18, 8.56]
+
+plt.bar(continents, areas, color='skyblue')
+
+plt.title('Areas of Continents')
+plt.xlabel('Continents')
+plt.ylabel('Area (million sq. km)')
+
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
