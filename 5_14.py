@@ -84,15 +84,17 @@ plt.tight_layout()
 plt.show()
 
 # j. Stack Plot
-region_data = df.groupby('Region')['Sales'].sum()
+
+region_data = df.groupby(['Date', 'Region'])['Sales'].sum().unstack(fill_value=0)
 
 plt.stackplot(
-    range(len(region_data)),
-    region_data.values,
-    labels=region_data.index
+    region_data.index,
+    *region_data.T.values,
+    labels=region_data.columns
 )
+
 plt.title('Sales by Region - Stack Plot')
-plt.xlabel('Region Index')
+plt.xlabel('Date')
 plt.ylabel('Sales')
 plt.legend()
 plt.show()
