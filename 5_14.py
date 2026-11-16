@@ -86,7 +86,7 @@ plt.show()
 # j. Stack Plot
 
 region_data = df.groupby(['Date', 'Region'])['Sales'].sum().unstack(fill_value=0)
-
+plt.figure(figsize=(12, 6))
 plt.stackplot(
     region_data.index,
     *region_data.T.values,
